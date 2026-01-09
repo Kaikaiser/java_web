@@ -12,6 +12,14 @@ public class Address {
                 '}';
     }
 
+    public Address(String province, String city) {
+        this.province = province;
+        this.city = city;
+    }
+
+    public Address() {
+    }
+
     public String getProvince() {
         return province;
     }
@@ -27,4 +35,6 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
+
+
 }

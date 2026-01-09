@@ -15,6 +15,15 @@ public class User {
                 '}';
     }
 
+    public User() {
+    }
+
+    public User(String name, Address address, Integer id) {
+        this.name = name;
+        this.address = address;
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
