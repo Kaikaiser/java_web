@@ -34,6 +34,6 @@ public class GetDateController {
         addr.setCity("深圳");
         list.add(addr);
         //return new Result("succes", 1, list);
-        return Result.succes(list);
+        return Result.success(list);
     }
 }

@@ -51,7 +51,7 @@ public class Result {
     }
 
 
-    public static Result succes(Object o){
+    public static Result success(Object o){
         return new Result("succeed", 1 , o);
     }
 
