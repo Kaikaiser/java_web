@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Component
-@Service
+@Component
+//@Service
 public class EmpServiceA implements EmpService {
     @Autowired
     private EmpDao empDao;

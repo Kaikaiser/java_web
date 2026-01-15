@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/spring-web-quick/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-mybatis-quick/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybatis-crud/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybatis-exampleproject/pom.xml" />
       </list>
     </option>
   </component>

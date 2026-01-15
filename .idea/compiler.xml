@@ -2,17 +2,32 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-mybatis-quick" />
         <module name="spring-web-quick" />
+        <module name="springboot-mybatis-crud" />
+      </profile>
+      <profile name="Annotation profile for springboot-mybatis-exampleproject" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../../java_develop/apache-maven-3.9.12/local_repo/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="springboot-mybatis-exampleproject" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-mybatis-quick" options="-parameters" />
       <module name="spring-web-quick" options="-parameters" />
+      <module name="springboot-mybatis-crud" options="-parameters" />
+      <module name="springboot-mybatis-exampleproject" options="-parameters" />
     </option>
   </component>
 </project>

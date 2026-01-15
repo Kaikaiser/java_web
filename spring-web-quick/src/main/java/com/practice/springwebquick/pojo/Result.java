@@ -51,12 +51,12 @@ public class Result {
     }
 
 
-    public static Result success(Object o){
-        return new Result("succeed", 1 , o);
+    public static Result success(Object o) {
+        return new Result("succeed", 1, o);
     }
 
-    public static Result error(){
-        return new Result("failed", 0 , null);
+    public static Result error() {
+        return new Result("failed", 0, null);
     }
 
 }
