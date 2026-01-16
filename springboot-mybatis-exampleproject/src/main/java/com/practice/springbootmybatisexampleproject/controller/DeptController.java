@@ -15,27 +15,35 @@ import java.util.List;
 
 @Slf4j
 @RestController
+
+@RequestMapping("/depts")
 public class DeptController {
     @Autowired
     private DeptService deptService;
 
-    @GetMapping("/alldepts")
+    @GetMapping
     public Result getAllDepts(){
         log.info("查看所有部门的数据");
         List<Dept> deptList = deptService.list();
         return Result.success(deptList);
     }
 
-    @DeleteMapping("dept/{id}")
+    @DeleteMapping("/{id}")
     public Result deleteDept(@PathVariable Integer id){
         log.info("删除的部门为：", id);
         deptService.deleteDept(id);
         return Result.success();
     }
 
-    @PostMapping("/depts")
-    public Result addDept(@ResponseBody Dept dept){
+    @PostMapping
+    public Result addDept(@RequestBody Dept dept){
         deptService.add(dept);
+        return Result.success();
+    }
+
+    @PutMapping
+    public Result updateDept(@RequestBody Dept dept){
+        deptService.update(dept);
         return Result.success();
     }
 }

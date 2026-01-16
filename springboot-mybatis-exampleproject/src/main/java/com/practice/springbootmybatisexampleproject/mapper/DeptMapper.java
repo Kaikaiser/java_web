@@ -2,10 +2,7 @@ package com.practice.springbootmybatisexampleproject.mapper;
 
 
 import com.practice.springbootmybatisexampleproject.pojo.Dept;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,6 +18,9 @@ public interface DeptMapper {
     @Delete("delete from dept where id = #{id} ")
     public void deleteById(int id);
 
-    @Insert("insert into dept(id, name, create_time, update_time) value #{id},#{name},#{createTime},#{updateTime}")
+    @Insert("insert into dept(id, name, create_time, update_time) value (#{id},#{name},#{createTime},#{updateTime})")
     public void add(Dept dept);
+
+    @Update("update dept set name = #{name} where id = #{id}")
+    public void update(Dept dept);
 }

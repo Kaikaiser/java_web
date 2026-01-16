@@ -60,6 +60,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 分页查询依赖 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -20,9 +20,18 @@ public interface DeptService {
      */
     void deleteDept(Integer id);
 
+
+
     /**
      * 添加部门
      * @param dept
      */
     void add(Dept dept);
+
+
+    /**
+     * 更新部门
+     * @param dept
+     */
+    void update(Dept dept);
 }

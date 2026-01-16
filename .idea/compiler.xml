@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-mybatis-quick" />
         <module name="spring-web-quick" />
-        <module name="springboot-mybatis-crud" />
       </profile>
       <profile name="Annotation profile for springboot-mybatis-exampleproject" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -21,6 +20,9 @@
         <module name="springboot-mybatis-exampleproject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springboot-mybatis-crud" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
