@@ -15,4 +15,6 @@ public interface EmpService {
     public PageBean getby(String name, Short gender, LocalDate begin, LocalDate end, Integer page, Integer pageSize);
 
     public void delete(List<Integer> ids);
+
+    void add(Emp emp);
 }

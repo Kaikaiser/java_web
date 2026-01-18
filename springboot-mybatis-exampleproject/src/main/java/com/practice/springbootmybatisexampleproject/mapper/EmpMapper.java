@@ -3,6 +3,7 @@ package com.practice.springbootmybatisexampleproject.mapper;
 
 import com.practice.springbootmybatisexampleproject.pojo.Emp;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,4 +43,12 @@ public interface EmpMapper {
     // xml文件
     public void delete(List<Integer> ids);
 
+
+    /**
+     * 添加新的员工
+     * @param emp
+     */
+    @Insert("insert into emp(name,username,gender,image,dept_id,job,entrydate,create_time,update_time)" +
+            "values(#{name},#{username},#{gender},#{image},#{deptId},#{job},#{entrydate},#{createTime},#{updateTime})")
+    public void add(Emp emp);
 }

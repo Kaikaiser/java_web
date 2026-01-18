@@ -49,6 +49,13 @@ public class EmpController {
         log.info("按照序号进行删除：");
         empService.delete(ids);
         return Result.success();
-
     }
+
+    @PostMapping("emps")
+    public Result add(@RequestBody Emp emp){
+        log.info("添加新的员工,emp:{}", emp);
+        empService.add(emp);
+        return Result.success();
+    }
+
 }
