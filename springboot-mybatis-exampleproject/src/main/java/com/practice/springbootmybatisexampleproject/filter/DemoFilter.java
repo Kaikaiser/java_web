@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebFilter;
 import javax.annotation.processing.Filer;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/login")
+//@WebFilter(urlPatterns = "/login")
 public class DemoFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
