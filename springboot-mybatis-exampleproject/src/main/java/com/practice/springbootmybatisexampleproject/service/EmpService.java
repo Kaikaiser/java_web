@@ -17,4 +17,6 @@ public interface EmpService {
     public void delete(List<Integer> ids);
 
     void add(Emp emp);
+
+    Emp login(Emp emp);
 }

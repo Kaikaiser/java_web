@@ -51,4 +51,12 @@ public interface EmpMapper {
     @Insert("insert into emp(name,username,gender,image,dept_id,job,entrydate,create_time,update_time)" +
             "values(#{name},#{username},#{gender},#{image},#{deptId},#{job},#{entrydate},#{createTime},#{updateTime})")
     public void add(Emp emp);
+
+
+    /**
+     * 登录验证
+     * @param emp
+     * @return
+     */
+    Emp selectByUsernameAndPassword(Emp emp);
 }

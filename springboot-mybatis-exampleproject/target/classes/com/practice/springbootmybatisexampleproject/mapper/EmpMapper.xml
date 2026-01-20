@@ -16,6 +16,13 @@
     </select>
 
 
+    <select id="selectByUsernameAndPassword" resultType="com.practice.springbootmybatisexampleproject.pojo.Emp">
+        select *
+        from emp
+        where username =#{username} and password = #{password}
+    </select>
+
+
     <delete id="delete">
         delete from emp where id in
         <foreach collection="ids" item = "id"  separator="," open="(" close=")">

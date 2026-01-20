@@ -26,33 +26,33 @@ public class EmpController {
 
     //    @RequestMapping(value = "/depts",method = RequestMethod.GET)
     @GetMapping("/emps")
-    public Result page(//String name, Short gender, LocalDate begin, LocalDate end,
+    public Result<PageBean> page(//String name, Short gender, LocalDate begin, LocalDate end,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer pageSize){
         log.info("分页查询所有人的数据：");
-        PageBean pageBean = empService.get(page, pageSize);
+        var pageBean = empService.get(page, pageSize);
         return Result.success(pageBean);
     }
     @GetMapping("/by")
-    public Result by(String name, Short gender,
+    public Result<PageBean> by(String name, Short gender,
                      @DateTimeFormat (pattern = "yyyy-MM-dd") LocalDate begin,
                      @DateTimeFormat (pattern = "yyyy-MM-dd") LocalDate end,
                      @RequestParam(defaultValue = "1") Integer page,
                      @RequestParam(defaultValue = "10") Integer pageSize){
         log.info("按照条件进行分页查询：");
-        PageBean pageBean = empService.getby(name, gender, begin, end, page, pageSize);
+        var pageBean = empService.getby(name, gender, begin, end, page, pageSize);
         return Result.success(pageBean);
     }
 
     @DeleteMapping("emps/{ids}")
-    public Result delete(@PathVariable List<Integer> ids){
+    public Result<String> delete(@PathVariable List<Integer> ids){
         log.info("按照序号进行删除：");
         empService.delete(ids);
         return Result.success();
     }
 
     @PostMapping("emps")
-    public Result add(@RequestBody Emp emp){
+    public Result<String> add(@RequestBody Emp emp){
         log.info("添加新的员工,emp:{}", emp);
         empService.add(emp);
         return Result.success();

@@ -45,6 +45,11 @@ public class EmpServiceImpl implements EmpService {
         empMapper.add(emp);
     }
 
+    @Override
+    public Emp login(Emp emp) {
+        return empMapper.selectByUsernameAndPassword(emp);
+    }
+
 
 //    @Override
 //    public PageBean get(Integer page, Integer pageSize) {
