@@ -1,26 +1,24 @@
-package com.practice.springbootmybatisexampleproject.filter;
+package interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.practice.springbootmybatisexampleproject.pojo.Result;
 import com.practice.springbootmybatisexampleproject.utils.JwtUtils;
-import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import org.springframework.web.client.HttpServerErrorException;
-
-import java.io.IOException;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
-//@WebFilter(urlPatterns = "/*")
-public class LoginFilter implements Filter {
-
-    @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
+@Component
+public class LoginCheckInterceptor implements HandlerInterceptor {
+    @Override // 预处理 控制器方法执行前调用 返回true放行  false拦截
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("preHandle");
+        HttpServletRequest req = request;
+        HttpServletResponse resp = response;
 
         // 获取请求url
         String requestURI = req.getRequestURI().toString();
@@ -60,5 +58,17 @@ public class LoginFilter implements Filter {
         // 放行
         log.info("token解析成功,放行");
         filterChain.doFilter(servletRequest,servletResponse);
+        return true;
+    }
+
+    @Override // 后处理 控制器方法执行后调用  可以对模型数据或视图进行修改
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        System.out.println("postHandle");
+    }
+
+    @Override // 完成处理 控制器方法执行完成后调用  可以进行资源清理
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        System.out.println("afterCompletion");
+
     }
 }
