@@ -17,3 +17,6 @@ mybatis:
     # 开启mybatis的驼峰命名自动映射开关
     map-underscore-to-camel-case: true
 
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug

@@ -59,4 +59,7 @@ public interface EmpMapper {
      * @return
      */
     Emp selectByUsernameAndPassword(Emp emp);
+
+    @Delete("delete from emp where dept_id=#{id}")
+    void deleteById(Integer id);
 }

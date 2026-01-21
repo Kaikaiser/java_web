@@ -1,6 +1,6 @@
 package com.practice.springbootmybatisexampleproject.config;
 
-import interceptor.LoginCheckInterceptor;
+import com.practice.springbootmybatisexampleproject.interceptor.LoginCheckInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -13,6 +13,6 @@ public class WebConFig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/**").excludePathPatterns("/login");
     }
 }

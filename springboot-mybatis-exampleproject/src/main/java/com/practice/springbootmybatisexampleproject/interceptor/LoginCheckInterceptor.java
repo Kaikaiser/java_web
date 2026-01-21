@@ -1,4 +1,4 @@
-package interceptor;
+package com.practice.springbootmybatisexampleproject.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
 import com.practice.springbootmybatisexampleproject.pojo.Result;
@@ -15,19 +15,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class LoginCheckInterceptor implements HandlerInterceptor {
     @Override // 预处理 控制器方法执行前调用 返回true放行  false拦截
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
         System.out.println("preHandle");
-        HttpServletRequest req = request;
-        HttpServletResponse resp = response;
-
         // 获取请求url
         String requestURI = req.getRequestURI().toString();
         log.info("请求路径：{}", requestURI);
 
         // 判断是否存在login路径 登录相关路径放行(login/register)
         if (requestURI.contains("/login") || requestURI.contains("/register")) {
-            filterChain.doFilter(req, resp);
-            return;
+            log.info("登录相关路径,放行");
+            return true;
         }
 
         // 判断获取的令牌是否存在 不存在返回错误结果
@@ -38,7 +35,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             // 手动转换 对象——json
             String notLogin = JSONObject.toJSONString(error);
             resp.getWriter().write(notLogin);
-            return;
+            return false;
         }
 
         // 解析token 解析失败 再返回错误
@@ -51,13 +48,12 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             // 手动转换 对象——json
             String notLogin = JSONObject.toJSONString(error);
             resp.getWriter().write(notLogin);
-            return;
+            return false;
         }
 
 
         // 放行
         log.info("token解析成功,放行");
-        filterChain.doFilter(servletRequest,servletResponse);
         return true;
     }
 
