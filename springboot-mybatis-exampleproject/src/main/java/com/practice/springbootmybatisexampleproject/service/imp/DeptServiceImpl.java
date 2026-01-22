@@ -25,12 +25,12 @@ public class DeptServiceImpl implements DeptService {
         return deptMapper.getAll();
     }
 
+
     @Transactional(rollbackFor = Exception.class) // rollbackFor = Exception.class表示事务回滚所有异常，不加默认只回滚RuntimeException
     @Override
     public void deleteDept(Integer id) {
 
         deptMapper.deleteById(id);
-        Integer a = id/0;
         empMapper.deleteById(id);
     }
 

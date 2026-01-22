@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
+import javax.swing.plaf.SpinnerUI;
 import java.security.Signature;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,12 +35,20 @@ class SpringbootMybatisExampleprojectApplicationTests {
         System.out.println(jwt);
     }
 
-    @Test
-    public void test02(){
-        Claims claims = Jwts.parser()
-                .setSigningKey("123456")
-                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzY4ODk2MzU5LCJ1c2VybmFtZSI6InRvbSJ9.45hD61G6wlLNlC0T0QaQOxz3vEPTCKMT0YMXuEOfmE0")
-                .getBody();
-        System.out.println(claims);
-    }
+//    @Test
+//    public void test02(){
+//        Claims claims = Jwts.parser()
+//                .setSigningKey("123456")
+//                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzY4ODk2MzU5LCJ1c2VybmFtZSI6InRvbSJ9.45hD61G6wlLNlC0T0QaQOxz3vEPTCKMT0YMXuEOfmE0")
+//                .getBody();
+//        System.out.println(claims);
+//    }
+//
+//
+//    @Test
+//    public void test03(){
+//        Integer a = 10;
+//        System.out.println("a="+a);
+//
+//    }
 }

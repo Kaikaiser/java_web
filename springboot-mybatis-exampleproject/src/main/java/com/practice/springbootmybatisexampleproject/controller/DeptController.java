@@ -1,6 +1,7 @@
 package com.practice.springbootmybatisexampleproject.controller;
 
 
+import com.practice.springbootmybatisexampleproject.anno.Log;
 import com.practice.springbootmybatisexampleproject.mapper.DeptMapper;
 import com.practice.springbootmybatisexampleproject.pojo.Dept;
 import com.practice.springbootmybatisexampleproject.pojo.Result;
@@ -21,28 +22,32 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
+    @Log
     @GetMapping
-    public Result getAllDepts(){
+    public Result<List<Dept>> getAllDepts(){
         log.info("查看所有部门的数据");
         List<Dept> deptList = deptService.list();
         return Result.success(deptList);
     }
 
+    @Log
     @DeleteMapping("/{id}")
-    public Result deleteDept(@PathVariable Integer id){
+    public Result<String> deleteDept(@PathVariable Integer id){
         log.info("删除的部门为：", id);
         deptService.deleteDept(id);
         return Result.success();
     }
 
+    @Log
     @PostMapping
-    public Result addDept(@RequestBody Dept dept){
+    public Result<String> addDept(@RequestBody Dept dept){
         deptService.add(dept);
         return Result.success();
     }
 
+    @Log
     @PutMapping
-    public Result updateDept(@RequestBody Dept dept){
+    public Result<String> updateDept(@RequestBody Dept dept){
         deptService.update(dept);
         return Result.success();
     }
