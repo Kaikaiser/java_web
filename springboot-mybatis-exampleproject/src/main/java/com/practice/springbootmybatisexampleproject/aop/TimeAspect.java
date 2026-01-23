@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect // aop类
 public class TimeAspect {
-
+    // execution: * 任意返回值
+    // com.practice.springbootmybatisexampleproject.service.imp.EmpServiceImpl.get(..) 类/接口.方法(..) 任意参数
     @Pointcut("execution(* com.practice.springbootmybatisexampleproject.service.imp.EmpServiceImpl.get(..))") // .类/接口.方法
     public void pointcut() {}
     @Around ("pointcut()") // .类/接口.方法
